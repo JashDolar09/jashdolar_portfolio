@@ -4,9 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Jash Portfolio',
+  description: 'Portfolio of Jash Dolar',
 }
 
 export default function RootLayout({

@@ -42,7 +42,23 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Tab visibility dynamic title logic
+    const originalTitle = document.title || "Jash Portfolio";
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        document.title = "Come Back To Portfolio";
+      } else {
+        document.title = "Jash Portfolio";
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
 
   return (
