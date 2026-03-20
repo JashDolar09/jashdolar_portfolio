@@ -26,30 +26,82 @@ import {
   X,
   Download,
   Star,
-  Zap,
   Rocket,
+  GraduationCap,
+  ArrowUp,
+  Zap,
+  User,
+  Cpu,
+  Briefcase,
+  MessageSquare
 } from "lucide-react";
+import "./education.css";
 import { AnimatedBackground } from "@/components/animated-background";
 import { FloatingElements } from "@/components/floating-elements";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { EducationReveal } from "@/components/education-reveal";
 import { TypingAnimation } from "@/components/typing-animation";
 import { useState, useEffect } from "react";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+        },
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert("✨ Message sent successfully! I will get back to you soon.");
+        form.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please try again.");
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      const skillsEl = document.getElementById("skills");
+      if (skillsEl) {
+        // Trigger purely when we reach 300px above the Skills section!
+        setShowScrollTop(window.scrollY >= skillsEl.offsetTop - 300);
+      } else {
+        setShowScrollTop(window.scrollY > 800);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
 
-    // Tab visibility dynamic title logic
+    // Tab visibility dynamic title & favicon logic
     const originalTitle = document.title || "Jash Portfolio";
     const handleVisibilityChange = () => {
+      let favicon = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
+      if (!favicon) {
+        favicon = document.createElement("link");
+        favicon.rel = "icon";
+        document.head.appendChild(favicon);
+      }
+      
       if (document.hidden) {
         document.title = "Come Back To Portfolio";
+        favicon.href = "/image/turn_back.png";
       } else {
         document.title = "Jash Portfolio";
+        favicon.href = "/image/Favicon.png";
       }
     };
 
@@ -231,7 +283,8 @@ export default function Portfolio() {
         <div className="container mx-auto">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-12 flex justify-center items-center">
+                <User className="w-10 h-10 md:w-12 md:h-12 mr-3 text-blue-600" />
                 About Me
               </h2>
               <Card className="glass-effect hover-lift border-0 shadow-2xl">
@@ -259,7 +312,8 @@ export default function Portfolio() {
         <div className="container mx-auto">
           <ScrollReveal>
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 flex justify-center items-center text-center">
+                <Cpu className="w-10 h-10 md:w-12 md:h-12 mr-3 text-purple-600" />
                 Skills & Technologies
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -307,66 +361,59 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 px-4 relative">
-        <div className="container mx-auto">
+      <section id="education" className="edu-section">
+        <div className="edu-container">
           <ScrollReveal>
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
-                My Education
-              </h2>
-              <div className="space-y-24 md:space-y-32">
-                {[
-                  {
-                    name: "Uka Tarsadia University (Maliba Campus)",
-                    degree: "B.Tech in Computer Science Engineering",
-                    year: "2022 - 2026",
-                    image: "/image/UTU_Clg_1.png",
-                    hoverImage: "/image/UTU_Clg_2.png",
-                  },
-                  {
-                    name: "S.V Public School",
-                    degree: "Higher Secondary Certificate (HSC)",
-                    year: "2020 - 2022",
-                    image: "/image/S.V_public_school.png",
-                  },
-                  {
-                    name: "Sunrise Vidyalaya",
-                    degree: "Secondary School Certificate (SSC)",
-                    year: "2018 - 2020",
-                    image: "/image/Sunrise school.jpg",
-                  },
-                ].map((edu, index) => (
-                  <ScrollReveal key={edu.name} delay={index * 150}>
-                    <div className="flex flex-col md:flex-row gap-8 items-center glass-effect p-6 md:p-10 rounded-3xl group hover-lift shadow-2xl relative overflow-hidden">
-                      <div className="md:w-1/2 relative rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 w-full flex-shrink-0">
-                        {edu.hoverImage ? (
-                          <>
-                            <img src={edu.image} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" />
-                            <img src={edu.hoverImage} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100" />
-                          </>
-                        ) : (
-                          <>
-                            <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                            <img src={edu.image} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                          </>
-                        )}
-                      </div>
-                      <div className="md:w-1/2 space-y-5 text-center md:text-left z-10">
-                        <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none px-4 py-1.5 text-sm md:text-base mb-2">
-                          {edu.year}
-                        </Badge>
-                        <h3 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-                          {edu.name}
-                        </h3>
-                        <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">
-                          {edu.degree}
-                        </p>
-                      </div>
-                      <div className="absolute -inset-4 bg-gradient-to-r from-blue-100/30 to-purple-100/30 blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <h2 className="edu-header">
+              <GraduationCap className="edu-icon" />
+              My Education
+            </h2>
+            <div className="edu-list">
+              {[
+                {
+                  name: "Uka Tarsadia University (Maliba Campus)",
+                  degree: "B.Tech in Computer Science Engineering",
+                  year: "2022 - 2026",
+                  image: "/image/UTU_Clg_1.png",
+                  hoverImage: "/image/UTU_Clg_2.png",
+                },
+                {
+                  name: "S.V Public School",
+                  degree: "Higher Secondary Certificate (HSC)",
+                  year: "2020 - 2022",
+                  image: "/image/S.V_public_school.png",
+                },
+                {
+                  name: "Sunrise Vidyalaya",
+                  degree: "Secondary School Certificate (SSC)",
+                  year: "2018 - 2020",
+                  image: "/image/Sunrise school.jpg",
+                },
+              ].map((edu, index) => (
+                <EducationReveal key={edu.name} delay={index * 150}>
+                  <div className="edu-card">
+                    <div className="edu-image-box">
+                      {edu.hoverImage ? (
+                        <>
+                          <img src={edu.image} alt={edu.name} className="edu-img-primary has-hover" />
+                          <img src={edu.hoverImage} alt={edu.name} className="edu-img-secondary" />
+                        </>
+                      ) : (
+                        <>
+                          <div className="edu-overlay" />
+                          <img src={edu.image} alt={edu.name} className="edu-img-primary" />
+                        </>
+                      )}
                     </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+                    <div className="edu-content">
+                      <div className="edu-badge">{edu.year}</div>
+                      <h3 className="edu-title">{edu.name}</h3>
+                      <p className="edu-degree">{edu.degree}</p>
+                    </div>
+                    <div className="edu-glow" />
+                  </div>
+                </EducationReveal>
+              ))}
             </div>
           </ScrollReveal>
         </div>
@@ -377,7 +424,8 @@ export default function Portfolio() {
         <div className="container mx-auto">
           <ScrollReveal>
             <div className="max-w-7xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 flex justify-center items-center text-center">
+                <Briefcase className="w-10 h-10 md:w-12 md:h-12 mr-3 text-emerald-500" />
                 Featured Projects
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -523,7 +571,8 @@ export default function Portfolio() {
         <div className="container mx-auto">
           <ScrollReveal>
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 flex justify-center items-center text-center">
+                <MessageSquare className="w-10 h-10 md:w-12 md:h-12 mr-3 text-red-500" />
                 Let's Connect
               </h2>
               <div className="grid lg:grid-cols-2 gap-12">
@@ -611,7 +660,10 @@ export default function Portfolio() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form className="space-y-6">
+                    <form onSubmit={handleFormSubmit} className="space-y-6">
+                      {/* Web3Forms Access Key */}
+                      <input type="hidden" name="access_key" value="740cea29-496e-4d86-9941-5bdc501aed05" />
+                      
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="firstName" className="text-gray-700">
@@ -619,7 +671,9 @@ export default function Portfolio() {
                           </Label>
                           <Input
                             id="firstName"
+                            name="First Name"
                             placeholder="John"
+                            required
                             className="glass-effect border-0 focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
@@ -629,7 +683,9 @@ export default function Portfolio() {
                           </Label>
                           <Input
                             id="lastName"
+                            name="Last Name"
                             placeholder="Doe"
+                            required
                             className="glass-effect border-0 focus:ring-2 focus:ring-blue-500"
                           />
                         </div>
@@ -641,7 +697,9 @@ export default function Portfolio() {
                         <Input
                           id="email"
                           type="email"
+                          name="Email"
                           placeholder="john@example.com"
+                          required
                           className="glass-effect border-0 focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
@@ -651,7 +709,9 @@ export default function Portfolio() {
                         </Label>
                         <Input
                           id="subject"
+                          name="Subject"
                           placeholder="Project Inquiry"
+                          required
                           className="glass-effect border-0 focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
@@ -661,12 +721,14 @@ export default function Portfolio() {
                         </Label>
                         <Textarea
                           id="message"
+                          name="Message"
                           placeholder="Tell me about your project..."
                           rows={4}
+                          required
                           className="glass-effect border-0 focus:ring-2 focus:ring-blue-500"
                         />
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 hover-lift glow-effect group">
+                      <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 hover-lift glow-effect group">
                         <Rocket className="w-4 h-4 mr-2 group-hover:animate-bounce" />
                         Send Message
                       </Button>
@@ -701,6 +763,19 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
+
+      {/* Scroll To Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 p-3 md:p-4 rounded-full bg-yellow-400 text-gray-900 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-yellow-300 hover:scale-[1.15] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center justify-center ${
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16 pointer-events-none"
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-6 h-6 md:w-7 md:h-7 stroke-[2.5]" />
+      </button>
     </div>
   );
 }

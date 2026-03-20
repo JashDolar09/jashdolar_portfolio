@@ -6,6 +6,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Jash Portfolio',
   description: 'Portfolio of Jash Dolar',
+  icons: {
+    icon: '/image/Favicon.png',
+  },
 }
 
 export default function RootLayout({

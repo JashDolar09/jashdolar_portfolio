@@ -20,6 +20,7 @@
   align-items: center;
   background: linear-gradient(to right, #2563eb, #9333ea);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -30,10 +31,19 @@
 }
 
 .edu-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 0.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 1rem;
   color: #374151; /* Dark gray for the cap icon */
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .edu-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.25rem;
+  }
 }
 
 .edu-list {
@@ -187,6 +197,7 @@
   font-weight: 600;
   background: linear-gradient(to right, #2563eb, #9333ea);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 

@@ -17,8 +17,13 @@ export function ScrollReveal({ children, className = "", delay = 0 }: ScrollReve
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add("animate-fade-in-up")
+              entry.target.classList.add("translate-y-0", "opacity-100")
+              entry.target.classList.remove("translate-y-8", "opacity-0")
             }, delay)
+          } else {
+            // Reset state so it triggers every single time as the user wanted
+            entry.target.classList.add("translate-y-8", "opacity-0")
+            entry.target.classList.remove("translate-y-0", "opacity-100", "animate-fade-in-up")
           }
         })
       },
