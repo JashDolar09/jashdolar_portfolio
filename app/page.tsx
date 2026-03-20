@@ -83,7 +83,7 @@ export default function Portfolio() {
             </div>
 
             <div className="hidden md:flex space-x-8">
-              {["Home", "About", "Skills", "Projects", "Contact"].map(
+              {["Home", "About", "Skills", "Education", "Projects", "Contact"].map(
                 (item) => (
                   <a
                     key={item}
@@ -112,7 +112,7 @@ export default function Portfolio() {
         {isMenuOpen && (
           <div className="md:hidden glass-effect border-t border-white/20">
             <div className="container mx-auto px-4 py-4 space-y-4">
-              {["Home", "About", "Skills", "Projects", "Contact"].map(
+              {["Home", "About", "Skills", "Education", "Projects", "Contact"].map(
                 (item) => (
                   <a
                     key={item}
@@ -298,6 +298,72 @@ export default function Portfolio() {
                         </span>
                       </CardContent>
                     </Card>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20 px-4 relative">
+        <div className="container mx-auto">
+          <ScrollReveal>
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
+                My Education
+              </h2>
+              <div className="space-y-24 md:space-y-32">
+                {[
+                  {
+                    name: "Uka Tarsadia University (Maliba Campus)",
+                    degree: "B.Tech in Computer Science Engineering",
+                    year: "2022 - 2026",
+                    image: "/image/UTU_Clg_1.png",
+                    hoverImage: "/image/UTU_Clg_2.png",
+                  },
+                  {
+                    name: "S.V Public School",
+                    degree: "Higher Secondary Certificate (HSC)",
+                    year: "2020 - 2022",
+                    image: "/image/S.V_public_school.png",
+                  },
+                  {
+                    name: "Sunrise Vidyalaya",
+                    degree: "Secondary School Certificate (SSC)",
+                    year: "2018 - 2020",
+                    image: "/image/Sunrise school.jpg",
+                  },
+                ].map((edu, index) => (
+                  <ScrollReveal key={edu.name} delay={index * 150}>
+                    <div className="flex flex-col md:flex-row gap-8 items-center glass-effect p-6 md:p-10 rounded-3xl group hover-lift shadow-2xl relative overflow-hidden">
+                      <div className="md:w-1/2 relative rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 w-full flex-shrink-0">
+                        {edu.hoverImage ? (
+                          <>
+                            <img src={edu.image} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" />
+                            <img src={edu.hoverImage} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100" />
+                          </>
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                            <img src={edu.image} alt={edu.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          </>
+                        )}
+                      </div>
+                      <div className="md:w-1/2 space-y-5 text-center md:text-left z-10">
+                        <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none px-4 py-1.5 text-sm md:text-base mb-2">
+                          {edu.year}
+                        </Badge>
+                        <h3 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+                          {edu.name}
+                        </h3>
+                        <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">
+                          {edu.degree}
+                        </p>
+                      </div>
+                      <div className="absolute -inset-4 bg-gradient-to-r from-blue-100/30 to-purple-100/30 blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
                   </ScrollReveal>
                 ))}
               </div>
