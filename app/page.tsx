@@ -246,7 +246,7 @@ export default function Portfolio() {
               <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 text-center">
                 Skills & Technologies
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {[
                   { name: "ReactJS", image: "/image/React.js.png" },
                   { name: "NodeJS", image: "/image/Node.js.png" },
@@ -254,6 +254,7 @@ export default function Portfolio() {
                   { name: "JavaScript", image: "/image/JS.png" },
                   { name: "HTML5", image: "/image/HTML 5.png" },
                   { name: "CSS3", image: "/image/CSS.png" },
+                  { name: "Bootstrap", image: "/image/Bootstrap.png" },
                   { name: "Python", image: "/image/Python.png" },
                   { name: "Java", image: "/image/Java.png" },
                   { name: "Flask", image: "/image/Flask.png" },
@@ -262,6 +263,8 @@ export default function Portfolio() {
                   { name: "MySQL", image: "/image/mySQL.png" },
                   { name: "Git", image: "/image/git.png" },
                   { name: "GitHub", image: "/image/Github.png" },
+                  { name: "Shopify", image: "/image/shopify.png" },
+                  { name: "Netlify", image: "/image/netlify.png" },
                   { name: "Canva", image: "/image/canva.png" },
                 ].map((skill, index) => (
                   <ScrollReveal key={skill.name} delay={index * 50}>
