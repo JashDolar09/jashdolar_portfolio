@@ -1,16 +1,16 @@
-/* app/education.css - Custom styling for My Education Section to allow easy tweaking */
+/* components/sections/Education/Education.module.css - Custom styling for My Education Section */
 
-.edu-section {
+.eduSection {
   padding: 5rem 1rem;
   position: relative;
 }
 
-.edu-container {
+.eduContainer {
   max-width: 1152px;
   margin: 0 auto;
 }
 
-.edu-header {
+.eduHeader {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -25,12 +25,12 @@
 }
 
 @media (min-width: 768px) {
-  .edu-header {
+  .eduHeader {
     font-size: 3rem;
   }
 }
 
-.edu-icon {
+.eduIcon {
   width: 3.5rem;
   height: 3.5rem;
   margin-right: 1rem;
@@ -39,21 +39,21 @@
 }
 
 @media (min-width: 768px) {
-  .edu-icon {
+  .eduIcon {
     width: 4.5rem;
     height: 4.5rem;
     margin-right: 1.25rem;
   }
 }
 
-.edu-list {
+.eduList {
   display: flex;
   flex-direction: column;
   gap: 4rem; /* Spacing between school boxes */
 }
 
 /* Make the box structure slightly smaller than before for a perfect fit */
-.edu-card {
+.eduCard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,13 +69,13 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.edu-card:hover {
+.eduCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 768px) {
-  .edu-card {
+  .eduCard {
     flex-direction: row;
     padding: 1.5rem;
     gap: 2rem;
@@ -83,7 +83,7 @@
 }
 
 /* The Image Container is smaller now: 220px high instead of 320px */
-.edu-image-box {
+.eduImageBox {
   position: relative;
   width: 100%;
   height: 200px;
@@ -94,13 +94,13 @@
 }
 
 @media (min-width: 768px) {
-  .edu-image-box {
+  .eduImageBox {
     width: 40%;
     height: 240px;
   }
 }
 
-.edu-img-primary, .edu-img-secondary {
+.eduImgPrimary, .eduImgSecondary {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,32 +111,34 @@
 }
 
 /* Primary Image State + Hover Behaviours */
-.edu-img-primary {
+.eduImgPrimary {
   z-index: 2;
 }
 
-.edu-card:hover .edu-img-primary.has-hover {
+.hasHover {}
+
+.eduCard:hover .eduImgPrimary.hasHover {
   opacity: 0; /* Fade out if there's a second image */
 }
 
-.edu-card:hover .edu-img-primary:not(.has-hover) {
+.eduCard:hover .eduImgPrimary:not(.hasHover) {
   transform: scale(1.05); /* Slight zoom if there's NO second image */
 }
 
 /* Secondary Hover Image State */
-.edu-img-secondary {
+.eduImgSecondary {
   z-index: 1;
   opacity: 0;
   transform: scale(1.05);
 }
 
-.edu-card:hover .edu-img-secondary {
+.eduCard:hover .eduImgSecondary {
   opacity: 1;
   transform: scale(1);
 }
 
 /* Blue Overlay for Single Images */
-.edu-overlay {
+.eduOverlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(37, 99, 235, 0.1);
@@ -144,25 +146,25 @@
   transition: background-color 0.5s ease;
 }
 
-.edu-card:hover .edu-overlay {
+.eduCard:hover .eduOverlay {
   background-color: transparent;
 }
 
 /* Content Details */
-.edu-content {
+.eduContent {
   width: 100%;
   z-index: 10;
   text-align: center;
 }
 
 @media (min-width: 768px) {
-  .edu-content {
+  .eduContent {
     width: 60%;
     text-align: left;
   }
 }
 
-.edu-badge {
+.eduBadge {
   display: inline-block;
   background-color: #dbeafe;
   color: #1d4ed8;
@@ -174,11 +176,11 @@
   transition: background-color 0.3s ease;
 }
 
-.edu-badge:hover {
+.eduBadge:hover {
   background-color: #bfdbfe;
 }
 
-.edu-title {
+.eduTitle {
   font-size: 1.5rem;
   font-weight: 800;
   color: #1f2937;
@@ -187,12 +189,12 @@
 }
 
 @media (min-width: 768px) {
-  .edu-title {
+  .eduTitle {
     font-size: 1.75rem; 
   }
 }
 
-.edu-degree {
+.eduDegree {
   font-size: 1.125rem;
   font-weight: 600;
   background: linear-gradient(to right, #2563eb, #9333ea);
@@ -202,13 +204,13 @@
 }
 
 @media (min-width: 768px) {
-  .edu-degree {
+  .eduDegree {
     font-size: 1.25rem;
   }
 }
 
 /* Background Glow Effect behind the card */
-.edu-glow {
+.eduGlow {
   position: absolute;
   top: -10px; left: -10px; right: -10px; bottom: -10px;
   background: linear-gradient(to right, rgba(219, 234, 254, 0.4), rgba(243, 232, 255, 0.4));
@@ -218,6 +220,6 @@
   transition: opacity 0.5s ease;
 }
 
-.edu-card:hover .edu-glow {
+.eduCard:hover .eduGlow {
   opacity: 1;
 }

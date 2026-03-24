@@ -35,7 +35,6 @@ import {
   Briefcase,
   MessageSquare
 } from "lucide-react";
-import "./education.css";
 import { AnimatedBackground } from "@/components/animated-background";
 import { FloatingElements } from "@/components/floating-elements";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -43,6 +42,7 @@ import { EducationReveal } from "@/components/education-reveal";
 import { TypingAnimation } from "@/components/typing-animation";
 import { useState, useEffect } from "react";
 import { socialLinks, skillsData, educationData, projectsData } from "./data";
+import Education from "@/components/sections/Education/Education";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -327,43 +327,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="edu-section">
-        <div className="edu-container">
-          <ScrollReveal>
-            <h2 className="edu-header">
-              <GraduationCap className="edu-icon" />
-              My Education
-            </h2>
-            <div className="edu-list">
-              {educationData.map((edu, index) => (
-                <EducationReveal key={edu.name} delay={index * 150}>
-                  <div className="edu-card">
-                    <div className="edu-image-box">
-                      {edu.hoverImage ? (
-                        <>
-                          <img src={edu.image} alt={edu.name} className="edu-img-primary has-hover" />
-                          <img src={edu.hoverImage} alt={edu.name} className="edu-img-secondary" />
-                        </>
-                      ) : (
-                        <>
-                          <div className="edu-overlay" />
-                          <img src={edu.image} alt={edu.name} className="edu-img-primary" />
-                        </>
-                      )}
-                    </div>
-                    <div className="edu-content">
-                      <div className="edu-badge">{edu.year}</div>
-                      <h3 className="edu-title">{edu.name}</h3>
-                      <p className="edu-degree">{edu.degree}</p>
-                    </div>
-                    <div className="edu-glow" />
-                  </div>
-                </EducationReveal>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <Education />
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 relative">

@@ -1,10 +1,10 @@
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Code, 
-  Globe, 
-  Database 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Code,
+  Globe,
+  Database
 } from "lucide-react";
 
 export const socialLinks = [
@@ -82,7 +82,6 @@ export const projectsData = [
     tags: ["JavaScript", "React", "Public"],
     live: "https://to-do-listtracker.netlify.app/",
     github: "https://to-do-listtracker.netlify.app/",
-    featured: true,
   },
   {
     title: "Image Converter Site",
