@@ -1,0 +1,45 @@
+.aboutSection {
+  @apply py-20 px-4 relative;
+}
+
+.aboutContainer {
+  @apply container mx-auto;
+}
+
+.contentWrapper {
+  @apply max-w-4xl mx-auto text-center;
+}
+
+.aboutTitle {
+  @apply text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-12 flex justify-center items-center;
+}
+
+.aboutTitleIcon {
+  @apply w-10 h-10 md:w-12 md:h-12 mr-3 text-blue-600;
+}
+
+.aboutCard {
+  @apply border-0 shadow-2xl;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+}
+
+.cardContent {
+  @apply p-8 md:p-12;
+}
+
+.starIconWrapper {
+  @apply flex items-center justify-center mb-8;
+}
+
+.starIconCircle {
+  @apply w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center;
+}
+
+.starIcon {
+  @apply w-10 h-10 text-white;
+}
+
+.aboutText {
+  @apply text-lg md:text-xl text-gray-700 leading-relaxed;
+}

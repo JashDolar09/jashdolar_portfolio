@@ -1,0 +1,64 @@
+.heroSection {
+  @apply min-h-screen flex items-center justify-center px-4 relative;
+}
+
+.heroContainer {
+  @apply container mx-auto text-center relative z-10;
+}
+
+.contentWrapper {
+  @apply max-w-5xl mx-auto;
+}
+
+.logoContainer {
+  @apply w-32 h-32 mx-auto mb-8 relative;
+}
+
+.logoInner {
+  @apply w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 rounded-full flex items-center justify-center text-white text-4xl font-bold ;
+  /* We use custom classes directly for glow effect if previously defined, or just add them here */
+}
+
+.logoGlow {
+  @apply absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 rounded-full animate-ping opacity-20;
+}
+
+.heroTitle {
+  @apply text-6xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient;
+}
+
+.heroSubtitle {
+  @apply text-2xl md:text-3xl text-gray-600 mb-8 font-light h-16;
+}
+
+.buttonGroup {
+  @apply flex flex-col sm:flex-row gap-4 justify-center items-center mb-12;
+}
+
+.primaryBtn {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group;
+}
+
+.secondaryBtn {
+  @apply border-2 border-blue-600/30 hover:bg-blue-600/10 px-8 py-4 text-lg bg-transparent;
+}
+
+.socialWrapper {
+  @apply flex justify-center space-x-6;
+}
+
+.socialIcon {
+  @apply w-12 h-12 bg-white/40 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 transition-all duration-300;
+}
+
+.scrollIndicatorContainer {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce;
+}
+
+.scrollIndicatorOutline {
+  @apply w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center;
+}
+
+.scrollIndicatorDot {
+  @apply w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse;
+}
