@@ -43,6 +43,7 @@ import { TypingAnimation } from "@/components/typing-animation";
 import { useState, useEffect } from "react";
 import { socialLinks, skillsData, educationData, projectsData } from "./data";
 import Education from "@/components/sections/Education/Education";
+import Skills from "@/components/sections/Skills/Skills";
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -279,12 +280,21 @@ export default function Portfolio() {
                       <Star className="w-10 h-10 text-white" />
                     </div>
                   </div>
-                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                    I'm Jash Dolar, a passionate and motivated web developer
-                    dedicated to building clean, responsive, and user-focused
-                    websites. I enjoy learning new technologies and solving
-                    real-world problems with code.
-                  </p>
+                  <ScrollReveal delay={100}>
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed text-left">
+                      I’m Jash Dolar, a passionate Web Developer who believes that code is the bridge between problems and their solutions. I specialize in building clean, user-focused websites that are not only visually appealing but also highly functional.
+                    </p>
+                  </ScrollReveal>
+                  <ScrollReveal delay={300}>
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-4 text-left">
+                      I enjoy transforming complex ideas into seamless digital experiences, combining thoughtful design with efficient backend logic. Whether working on frontend interfaces or backend systems, I am driven by curiosity and a commitment to continuous learning.
+                    </p>
+                  </ScrollReveal>
+                  <ScrollReveal delay={500}>
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed mt-4 text-left">
+                      With every project I take on, my goal is to deliver high-quality, scalable and impactful solutions that create real value.
+                    </p>
+                  </ScrollReveal>
                 </CardContent>
               </Card>
             </div>
@@ -293,38 +303,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 relative">
-        <div className="container mx-auto">
-          <ScrollReveal>
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-16 flex justify-center items-center text-center">
-                <Cpu className="w-10 h-10 md:w-12 md:h-12 mr-3 text-purple-600" />
-                Skills & Technologies
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                {skillsData.map((skill, index) => (
-                  <ScrollReveal key={skill.name} delay={index * 50}>
-                    <Card className="glass-effect hover-lift border-0 shadow-lg group hover:bg-blue-50/50 transition-all duration-300">
-                      <CardContent className="p-6 flex flex-col items-center justify-center min-h-[160px]">
-                        <div className="w-16 h-16 relative mb-4">
-                          <img
-                            src={skill.image}
-                            alt={skill.name}
-                            className="w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110 drop-shadow-sm"
-                          />
-                        </div>
-                        <span className="text-gray-700 font-semibold group-hover:text-blue-600 transition-colors duration-300 text-center">
-                          {skill.name}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <Skills />
 
       {/* Education Section */}
       <Education />

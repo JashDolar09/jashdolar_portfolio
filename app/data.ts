@@ -71,7 +71,19 @@ export const educationData = [
   },
 ];
 
-export const projectsData = [
+export interface Project {
+  title: string;
+  description: string;
+  gradient: string;
+  icon: any;
+  image?: string;
+  tags: string[];
+  live: string;
+  github: string;
+  featured?: boolean;
+}
+
+export const projectsData: Project[] = [
   {
     title: "To-Do App",
     description:
