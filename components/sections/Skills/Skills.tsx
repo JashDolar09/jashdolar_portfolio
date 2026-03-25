@@ -23,7 +23,7 @@ function SkillCard({ skill, index }: { skill: any, index: number }) {
             <img
               src={skill.image}
               alt={skill.name}
-              className={`w-full h-full object-contain transition-all duration-500 transform drop-shadow-sm ${isHovered ? 'filter-none opacity-100 scale-110' : 'filter grayscale opacity-70 scale-100'}`}
+              className={`w-full h-full object-contain transition-all duration-800 transform drop-shadow-sm ${isHovered ? 'filter-none opacity-100 scale-110' : 'filter grayscale opacity-70 scale-100'}`}
             />
           </div>
           <span className={`font-semibold transition-colors duration-300 text-center ${isHovered ? 'text-blue-600' : 'text-gray-700'}`}>
