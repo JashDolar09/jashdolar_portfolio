@@ -52,15 +52,38 @@ export default function Projects() {
                         className={`${styles.imageWrapper} bg-gradient-to-br ${project.gradient}`}
                       >
                         {project.image ? (
-                          <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className={styles.projectImg} 
-                          />
+                          project.hoverImage ? (
+                            <>
+                              <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                className={styles.projectImgPrimary} 
+                              />
+                              <img 
+                                src={project.hoverImage} 
+                                alt={project.title} 
+                                className={styles.projectImgSecondary} 
+                              />
+                            </>
+                          ) : (
+                            <img 
+                              src={project.image} 
+                              alt={project.title} 
+                              className={styles.projectImg} 
+                            />
+                          )
                         ) : (
                           <project.icon className={styles.projectIconDefault} />
                         )}
-                        <div className={styles.imageOverlay}></div>
+                        
+                        {project.status && (
+                          <div className={styles.projectStatus}>
+                            <span className={styles.statusIcon}></span>
+                            {project.status}
+                          </div>
+                        ) || (
+                           <div className={styles.imageOverlay}></div>
+                        )}
                         <div className={`${styles.shimmerEffect} shimmer`}></div>
                       </div>
                       <CardTitle className={styles.projectTitle}>

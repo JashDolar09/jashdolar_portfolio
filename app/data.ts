@@ -77,10 +77,12 @@ export interface Project {
   gradient: string;
   icon: any;
   image?: string;
+  hoverImage?: string;
   tags: string[];
   live: string;
   github: string;
   featured?: boolean;
+  status?: string;
 }
 
 export const projectsData: Project[] = [
@@ -137,5 +139,18 @@ export const projectsData: Project[] = [
     tags: ["Next.js", "React", "Frontend SEO"],
     live: "https://parvatiethnics.com/",
     github: "https://github.com/Kiranpokharkar2003/Parvati_Fabric_Website/tree/main/frontend",
+  },
+  {
+    title: "Rishi Portfolio (Live project)",
+    description:
+      "A personal portfolio website showcasing creative design and technical expertise.",
+    gradient: "from-indigo-400 to-cyan-500",
+    icon: Code,
+    image: "/image/rishi_portfolio_1.png",
+    hoverImage: "/image/rishi_portfolio_2.png",
+    status: "In Progress",
+    tags: ["Next.js", "React", "Tailwind CSS", "Animations"],
+    live: "https://rishiportfolio-five.vercel.app/",
+    github: "https://rishiportfolio-five.vercel.app/",
   },
 ];

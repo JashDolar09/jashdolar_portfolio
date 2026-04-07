@@ -47,7 +47,15 @@
 }
 
 .projectImg {
-  @apply w-full h-full object-cover z-10;
+  @apply w-full h-full object-cover z-20 transition-opacity duration-500;
+}
+
+.projectImgPrimary {
+  @apply absolute inset-0 w-full h-full object-cover z-20 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-110;
+}
+
+.projectImgSecondary {
+  @apply absolute inset-0 w-full h-full object-cover z-10 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100 group-hover:scale-100;
 }
 
 .projectIconDefault {
@@ -67,7 +75,15 @@
 }
 
 .projectDescription {
-  @apply text-gray-600;
+  @apply text-gray-600 mb-2;
+}
+
+.projectStatus {
+  @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-3 px-4 text-white text-xs font-semibold backdrop-blur-[2px] opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 z-30 flex items-center gap-2;
+}
+
+.statusIcon {
+  @apply w-2 h-2 rounded-full bg-emerald-400 animate-pulse;
 }
 
 .cardContent {
