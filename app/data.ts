@@ -28,6 +28,8 @@ export const socialLinks = [
   },
 ];
 
+export const resumeUrl = "https://drive.google.com/uc?export=download&id=1mKK-bZpiU20FWZbaLwcobfSXqzZN4ar8";
+
 export const skillsData = [
   { name: "ReactJS", image: "/image/React.js.png" },
   { name: "NodeJS", image: "/image/Node.js.png" },

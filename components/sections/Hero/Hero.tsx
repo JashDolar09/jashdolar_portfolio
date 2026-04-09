@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Rocket, Download } from "lucide-react";
 import { TypingAnimation } from "@/components/typing-animation";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { socialLinks } from "@/app/data";
+import { socialLinks, resumeUrl } from "@/app/data";
 
 export default function Hero() {
   return (
@@ -55,6 +55,7 @@ export default function Hero() {
                 variant="outline"
                 size="lg"
                 className={`${styles.secondaryBtn} hover-lift glass-effect`}
+                onClick={() => window.location.href = resumeUrl}
               >
                 <Download className="w-5 h-5 mr-2" />
                 Download CV

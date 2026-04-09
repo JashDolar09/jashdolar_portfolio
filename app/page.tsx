@@ -41,7 +41,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { EducationReveal } from "@/components/education-reveal";
 import { TypingAnimation } from "@/components/typing-animation";
 import { useState, useEffect } from "react";
-import { socialLinks, skillsData, educationData, projectsData } from "./data";
+import { socialLinks, skillsData, educationData, projectsData, resumeUrl } from "./data";
 import Education from "@/components/sections/Education/Education";
 import Skills from "@/components/sections/Skills/Skills";
 
@@ -234,6 +234,7 @@ export default function Portfolio() {
                   variant="outline"
                   size="lg"
                   className="glass-effect border-2 border-blue-600/30 hover:bg-blue-600/10 px-8 py-4 text-lg hover-lift bg-transparent"
+                  onClick={() => window.location.href = resumeUrl}
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download CV
