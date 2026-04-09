@@ -86,16 +86,16 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
-  {
-    title: "To-Do App",
+    {
+    title: "Parnika India",
     description:
-      "A React-based to-do application designed for managing daily tasks, featuring a clean interface that helps users stay organized and productive.",
-    gradient: "from-green-400 to-blue-500",
-    icon: Code,
-    image: "/image/To-Do App_Project.png",
-    tags: ["JavaScript", "React", "Public"],
-    live: "https://to-do-listtracker.netlify.app/",
-    github: "https://to-do-listtracker.netlify.app/",
+      "A comprehensive digital catalog for a premium Indian ethnic wear manufacturer with programmatic SEO, dynamic routing for 100+ cities, and WhatsApp lead generation.",
+    gradient: "from-teal-400 to-emerald-500",
+    icon: Globe,
+    image: "/image/Parnika_Project.png",
+    tags: ["Next.js", "React 19", "SEO", "TypeScript"],
+    live: "https://parnikaindia.com/",
+    github: "https://github.com/JashDolar09/parnika_nextjs",
   },
   {
     title: "Image Converter Site",
@@ -119,17 +119,6 @@ export const projectsData: Project[] = [
     github: "https://www.findmydsc.in/",
   },
   {
-    title: "Parnika India",
-    description:
-      "A comprehensive digital catalog for a premium Indian ethnic wear manufacturer with programmatic SEO, dynamic routing for 100+ cities, and WhatsApp lead generation.",
-    gradient: "from-teal-400 to-emerald-500",
-    icon: Globe,
-    image: "/image/Parnika_Project.png",
-    tags: ["Next.js", "React 19", "SEO", "TypeScript"],
-    live: "https://parnikaindia.com/",
-    github: "https://github.com/JashDolar09/parnika_nextjs",
-  },
-  {
     title: "Parvati Ethnics",
     description:
       "A modern web application showcasing premium Indian ethnic wear. Features reactive micro-animations and advanced technical SEO to establish brand authority.",
@@ -150,7 +139,18 @@ export const projectsData: Project[] = [
     hoverImage: "/image/rishi_portfolio_2.png",
     status: "In Progress",
     tags: ["Next.js", "React", "Tailwind CSS", "Animations"],
-    live: "https://rishiportfolio-five.vercel.app/",
-    github: "https://rishiportfolio-five.vercel.app/",
+    live: "https://rishivideographer.vercel.app/",
+    github: "https://rishivideographer.vercel.app/",
+  },
+  {
+    title: "To-Do App",
+    description:
+      "A React-based to-do application designed for managing daily tasks, featuring a clean interface that helps users stay organized and productive.",
+    gradient: "from-green-400 to-blue-500",
+    icon: Code,
+    image: "/image/To-Do App_Project.png",
+    tags: ["JavaScript", "React", "Public"],
+    live: "https://to-do-listtracker.netlify.app/",
+    github: "https://to-do-listtracker.netlify.app/",
   },
 ];
